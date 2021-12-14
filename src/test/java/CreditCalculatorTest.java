@@ -8,26 +8,26 @@ public class CreditCalculatorTest {
     private final int creditTerm = 12;
     CreditCalculator calculator = new CreditCalculator();
 
-    @DisplayName("Проверка расчета ежемесячного платежа")
+    @DisplayName("Проверка расчета расчета месячного платежа")
     @Test
     void testCalcPayPerMonth() {
-        int expected = 92_416;
+        int expected = 88_335;
         int actual = calculator.calcPayPerMonth(creditAmount, interestRate, creditTerm);
         Assertions.assertEquals(expected, actual);
     }
 
-    @DisplayName("Проверка расчета общей суммы кредита")
+    @DisplayName("Проверка расчета общей суммы к возврату в банк")
     @Test
     void testCalcTheTotalAmount() {
-        int expected = 1_109_000;
+        int expected = 1_060_020;
         int actual = calculator.calcTheTotalAmount(creditAmount, interestRate, creditTerm);
         Assertions.assertEquals(expected, actual);
     }
 
-    @DisplayName("Проверка расчета суммы процентов по кредиту")
+    @DisplayName("Проверка расчет переплаты за весь период")
     @Test
     void testCalcOverpayAmount() {
-        int expected = 109_000;
+        int expected = 60_020;
         int actual = calculator.calcOverpayAmount(creditAmount, interestRate, creditTerm);
         Assertions.assertEquals(expected, actual);
     }
